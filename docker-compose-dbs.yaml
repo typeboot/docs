@@ -1,0 +1,33 @@
+version: '3.7'
+volumes:
+    typebootdb: {}
+    dsedb: {}
+services:
+    postgres:
+      image: postgres:11.5
+      environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=password
+          - POSTGRES_DB=postgres
+      ports:
+        - "5432:5432"
+      networks:
+        typebootn:
+          aliases:
+            - postgres
+
+    dse:
+      image: datastax/dse-server:6.8.2
+      environment:
+        - DS_LICENSE=accept
+      ports:
+        - "9042:9042"
+      networks:
+        typebootn:
+          aliases:
+            - dse
+networks:
+  typebootn: {}
+
+
+      

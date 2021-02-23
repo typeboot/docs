@@ -1,0 +1,29 @@
+tracker:
+  name: jdbc
+  extension: "sql"
+  separator: ";"
+  params:
+    driver: "org.postgresql.Driver"
+    host: "postgres"
+    port: "5432"
+    username: "postgres"
+    password: "password"
+    database: executor
+    table: jdbc_migrations
+    app_name: "cassandra-demo"
+    team_name: "default"
+
+executor:
+  source: "/opt/app/data/cql"
+  provider:
+    name: cassandra
+    extension: "cql"
+    separator: ";"
+    params:
+      contact_points: "dse"
+      port: "9042"
+      ssl: false
+      username: "cassandra"
+      password: "cassandra"
+      dc: "dc1"
+

@@ -1,0 +1,76 @@
+---
+kind: SchemaDefinition
+subject:
+  schema: customer
+options:
+  replicas:
+    - datacenter-name: dc1
+      replica: 1
+
+---
+kind: TableDefinition
+subject:
+  schema: customer
+  table: customers
+options:
+  default_time_to_live: 1000
+  gc_grace_seconds: 86400
+  compaction: |
+    {'class': 'TimeWindowCompactionStrategy', 'compaction_window_unit': 'DAYS', 'compaction_window_size': 60, 'split_during_flush': true}
+fields:
+  - name: key1
+    description: "some key"
+    tags:
+      - pii
+      - confidential
+  - name: key2
+  - name: key3
+  - name: key4
+    type: date
+  - name: key6
+  - name: col11
+  - name: col10
+  - name: col13
+  - name: col12
+constraints:
+  - type: primary key
+    fieldNames:
+      - (key1, key2)
+      - key3
+      - key4
+  - type: clustering key
+    fieldNames:
+      - -key3
+      - key4
+
+---
+kind: ColumnDefinition
+subject:
+  schema: customer
+  table: customers
+fields:
+  - name: key5
+    tags:
+      - restricted
+
+---
+kind: ColumnRenameDefinition
+subject:
+  schema: customer
+  table: customers
+fields:
+  - from: key3
+    to: key3_value
+  - from: key4
+    to: key4_value
+
+---
+kind: ColumnRemovalDefinition
+subject:
+  schema: customer
+  table: customers
+fields:
+  - name: key5
+  - name: col13
+
+

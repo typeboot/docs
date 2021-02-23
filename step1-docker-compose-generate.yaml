@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  typeboot-spec-postgres:
+    image: typeboot/typeboot-spec:latest
+    volumes:
+      - ./output/postgres:/tmp/output
+      - ./input/postgres:/tmp/input
+      - ./postgres-spec.yaml:/opt/app/.typeboot.yaml
+
+  typeboot-spec-cassandra:
+    image: typeboot/typeboot-spec:latest
+    volumes:
+      - ./output/cassandra:/tmp/output
+      - ./input/postgres:/tmp/input
+      - ./cassandra-spec.yaml:/opt/app/.typeboot.yaml
+
+networks:
+  typebootn: {}
+
+
+      

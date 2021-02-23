@@ -1,0 +1,28 @@
+tracker:
+  name: jdbc
+  extension: "sql"
+  separator: ";"
+  params:
+    driver: "org.postgresql.Driver"
+    host: "postgres"
+    port: "5432"
+    username: "postgres"
+    password: "password"
+    database: executor
+    table: jdbc_migrations
+    app_name: "core"
+    team_name: "default"
+
+executor:
+  source: "/opt/app/data/sql"
+  provider:
+    name: jdbc
+    extension: "sql"
+    separator: ";"
+    params:
+      driver: org.postgresql.Driver
+      host: "postgres"
+      port: "5432"
+      username: postgres
+      password: password
+
