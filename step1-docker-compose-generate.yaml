@@ -5,14 +5,14 @@ services:
     volumes:
       - ./output/postgres:/tmp/output
       - ./input/postgres:/tmp/input
-      - ./postgres-spec.yaml:/opt/app/.typeboot.yaml
+      - ./postgres-spec.yaml:/opt/app/conf/.typeboot.yaml
 
   typeboot-spec-cassandra:
     image: typeboot/typeboot-spec:latest
     volumes:
       - ./output/cassandra:/tmp/output
-      - ./input/postgres:/tmp/input
-      - ./cassandra-spec.yaml:/opt/app/.typeboot.yaml
+      - ./input/cassandra:/tmp/input
+      - ./cassandra-spec.yaml:/opt/app/conf/.typeboot.yaml
 
 networks:
   typebootn: {}
