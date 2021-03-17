@@ -8,7 +8,8 @@ tracker:
     port: "5432"
     username: "postgres"
     password: "password"
-    database: executor
+    database: postgres
+    schema: executor
     table: jdbc_migrations
     app_name: "cassandra-demo"
     team_name: "default"
@@ -26,4 +27,7 @@ executor:
       username: "cassandra"
       password: "cassandra"
       dc: "dc1"
+
+vars:
+  keyspace: "customer"
 
