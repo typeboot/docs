@@ -13,6 +13,7 @@ tracker:
     table: jdbc_migrations
     app_name: "cassandra-demo"
     team_name: "default"
+    create_schema: "true"
 
 executor:
   source: "/opt/app/data/cql"
