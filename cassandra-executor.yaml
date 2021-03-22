@@ -14,6 +14,7 @@ tracker:
     app_name: "cassandra-demo"
     team_name: "default"
     create_schema: "true"
+    ignore_unclean_state: "false"
 
 executor:
   source: "/opt/app/data/cql"
@@ -28,6 +29,8 @@ executor:
       username: "cassandra"
       password: "cassandra"
       dc: "dc1"
+      truststore_path: ""
+      truststore_password: ""
 
 vars:
   keyspace: "customer"
