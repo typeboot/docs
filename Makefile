@@ -29,6 +29,9 @@ cqlsh:
 psql:
 	@docker exec -it postgres psql -U postgres
 
+reset-db:
+	@docker exec -it postgres psql -U postgres -c 'drop schema executor cascade'
+	@docker exec -it dse cqlsh --ssl -ucassandra -pcassandra -e 'drop keyspace customer'
 usage:
 	@echo targets - pull, db-up, db-down, db-ps, generate, execute
 

@@ -34,12 +34,9 @@ select script_id, script_name, status, executed from executor.jdbc_migrations;
 ```
 
 ### Reset DB status
-
+You can drop executor schema as well as the cql schema either manually or using the reset-db target
 ```
-make psql
-    $ drop schema executor cascade;\q
-make cqlsh
-    $ drop keyspace customer; exit;
+make reset-db
 ```
 
 ### Shutdown
