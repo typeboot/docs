@@ -5,6 +5,9 @@ pull:
 	@docker-compose -f step1-docker-compose-generate.yaml pull
 	@docker-compose -f step2-docker-compose-execute.yaml pull
 
+build:
+	@docker-compose -f docker-compose-dbs.yaml build
+
 db-up:
 	@docker-compose -f docker-compose-dbs.yaml up -d
 
@@ -21,10 +24,10 @@ execute:
 	@docker-compose -f step2-docker-compose-execute.yaml up
 
 cqlsh:
-	@docker exec -it docs_dse_1 cqlsh
+	@docker exec -it dse cqlsh --ssl -ucassandra -pcassandra
 
 psql:
-	@docker exec -it docs_postgres_1 psql -U postgres
+	@docker exec -it postgres psql -U postgres
 
 usage:
 	@echo targets - pull, db-up, db-down, db-ps, generate, execute

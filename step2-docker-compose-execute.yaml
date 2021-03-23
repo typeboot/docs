@@ -1,21 +1,21 @@
 version: '3.7'
 services:
   typeboot-executor-postgres:
-    image: typeboot/executor:0.2
+    image: typeboot/executor:0.12
     volumes:
       - ./output/postgres/sql:/opt/app/data/sql
-      - ./postgres-executor.yaml:/opt/app/executor.yaml     
+      - ./postgres-executor.yaml:/opt/app/executor.yaml
     networks:
       typebootn:
         aliases:
           - typeboot-executor-postgres
 
   typeboot-executor-cassandra:
-    image: typeboot/executor:0.2
+    image: typeboot/executor:0.12
     volumes:
       - ./output/cassandra/cql:/opt/app/data/cql
       - ./cassandra-executor.yaml:/opt/app/executor.yaml
-
+      - ./cassandra/truststore.jks:/opt/data/truststore/truststore.jks
     networks:
       typebootn:
         aliases:

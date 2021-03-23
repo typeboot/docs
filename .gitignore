@@ -1,2 +1,16 @@
 output
 
+/*
+ca cert folders
+*/
+cassandra
+ca
+
+/*
+intellij files
+*/
+.idea
+*.iml
+*.iws
+*.ipr
+

@@ -11,17 +11,21 @@ services:
           - POSTGRES_DB=postgres
       ports:
         - "5432:5432"
+      container_name: postgres
       networks:
         typebootn:
           aliases:
             - postgres
 
     dse:
-      image: datastax/dse-server:6.8.2
+      build: .
+      image: dse-server:6.8.9-ubi7-tls
       environment:
         - DS_LICENSE=accept
+        - SSL_VALIDATE=false
       ports:
         - "9042:9042"
+      container_name: dse
       networks:
         typebootn:
           aliases:

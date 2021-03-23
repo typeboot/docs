@@ -25,12 +25,15 @@ executor:
     params:
       contact_points: "dse"
       port: "9042"
-      ssl: false
+      ssl: true
       username: "cassandra"
       password: "cassandra"
       dc: "dc1"
-      truststore_path: ""
-      truststore_password: ""
+      #to be mapped
+      truststore_path: "/opt/data/truststore/truststore.jks"
+      truststore_password: "cassandra"
+      timeout_in_seconds: "10"
+      consistency: "ONE"
 
 vars:
   keyspace: "customer"
