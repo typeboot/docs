@@ -3,6 +3,7 @@ provider:
   name: cassandra
   options:
     dynamic_schema: "no"
+    ext: ".cql"
 
 #strict, compatibility
 mode: "strict"
@@ -12,4 +13,8 @@ generate: "all"
 source: "/tmp/input"
 
 #stdout if path is not provided
-output: "/tmp/output"
+output: 
+  path: "/tmp/output"
+  pad: "4"
+  prefix: ""
+
